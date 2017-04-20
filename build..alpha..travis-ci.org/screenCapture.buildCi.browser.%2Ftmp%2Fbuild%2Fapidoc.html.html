@@ -1,0 +1,1768 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a>skipper (v0.8.2)</a>
+</h1>
+<h4>Bodyparser for Express/Sails. Exposes simple API for streaming multiple files to disk, S3, etc. without buffering to a .tmp directory.</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper">module skipper</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.skipper">
+            function <span class="apidocSignatureSpan"></span>skipper
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser">
+            function <span class="apidocSignatureSpan">skipper.</span>Parser
+            <span class="apidocSignatureSpan">(req, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream">
+            function <span class="apidocSignatureSpan">skipper.</span>Upstream
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.logger">
+            function <span class="apidocSignatureSpan">skipper.</span>logger
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">skipper.</span>Parser.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">skipper.</span>Upstream.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">skipper.</span>stringfile</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper.Parser">module skipper.Parser</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser.Parser">
+            function <span class="apidocSignatureSpan">skipper.</span>Parser
+            <span class="apidocSignatureSpan">(req, options, next)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser.super_">
+            function <span class="apidocSignatureSpan">skipper.Parser.</span>super_
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper.Parser.prototype">module skipper.Parser.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser.prototype.acquireUpstream">
+            function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>acquireUpstream
+            <span class="apidocSignatureSpan">(fieldName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser.prototype.onFile">
+            function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>onFile
+            <span class="apidocSignatureSpan">(part)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser.prototype.onTextParam">
+            function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>onTextParam
+            <span class="apidocSignatureSpan">(part)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Parser.prototype.parseReq">
+            function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>parseReq
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper.Upstream">module skipper.Upstream</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.Upstream">
+            function <span class="apidocSignatureSpan">skipper.</span>Upstream
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.super_">
+            function <span class="apidocSignatureSpan">skipper.Upstream.</span>super_
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper.Upstream.prototype">module skipper.Upstream.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype._read">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>_read
+            <span class="apidocSignatureSpan">(numBytesRequested)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype.fatalIncomingError">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>fatalIncomingError
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype.noMoreFiles">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>noMoreFiles
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype.pipe">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>pipe
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype.serializeFiles">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>serializeFiles
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype.upload">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>upload
+            <span class="apidocSignatureSpan">(opts, _cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.Upstream.prototype.writeFile">
+            function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>writeFile
+            <span class="apidocSignatureSpan">(__filestream)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper.logger">module skipper.logger</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.logger.logger">
+            function <span class="apidocSignatureSpan">skipper.</span>logger
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.logger.color">
+            function <span class="apidocSignatureSpan">skipper.logger.</span>color
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.skipper.stringfile">module skipper.stringfile</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.skipper.stringfile.get">
+            function <span class="apidocSignatureSpan">skipper.stringfile.</span>get
+            <span class="apidocSignatureSpan">(keypath, args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper" id="apidoc.module.skipper">module skipper</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.skipper" id="apidoc.element.skipper.skipper">
+        function <span class="apidocSignatureSpan"></span>skipper
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toParseHTTPBody(options) {
+  options = options || {};
+
+  // Configure body parser components
+
+  // For URLEncoded, default the "extended" option to true for backwards compatibility,
+  // and to avoid a deprecation warning (see https://github.com/expressjs/body-parser#options-3)
+  // Also default request limit for JSON and URL-encoded parsers to 1mb for backwards compatibility.
+  var URLEncodedBodyParser = bodyParser.urlencoded(_.extend({extended: true, limit: '1mb'}, options));
+  var JSONBodyParser = bodyParser.json(_.extend({limit: '1mb'}, options));
+  var MultipartBodyParser = toParseMultipartHTTPRequest(options);
+
+
+<span class="apidocCodeCommentSpan">  /**
+   * Connet/Express/Sails-compatible middleware.
+   *
+   * @param  {Request}   req  [description]
+   * @param  {Response}   res  [description]
+   * @param  {Function} next [description]
+   */
+</span>
+  return function _parseHTTPBody(req, res, next) {
+
+    // If there's no `req.is`, bail out early because we won't be able to tell
+    // with certainty what the content-type is or isn't.
+    if (!req.is) {
+      return next(new Error('Consistency violation: `req.is` is not defined.\n' +
+                            'This typically means that you are using an outdated version of Express.\n'+
+                            'Skipper requires Express 3 or above.\n'));
+    }
+
+    // Use custom body parser error handler if provided, otherwise
+    // just forward the error to the next Express error-handling middleware.
+    var handleError = function (err) {
+      if (options.onBodyParserError) {
+        return options.onBodyParserError(err, req, res, next);
+      }
+      return next(err);
+    };
+
+    // Optimization: skip bodyParser for GET, OPTIONS, or body-less requests.
+    if (req.method.toLowerCase() === 'get' || req.method.toLowerCase() === 'options' || req.method.toLowerCase() === 'head') {
+
+      // But stub out a `req.file()` method with a usage error:
+      req.file = function() {
+        throw new Error('`req.file()` cannot be used with an HTTP GET, OPTIONS, or HEAD request.');
+      };
+
+      return next();
+    }
+
+    // TODO: Optimization: only run bodyParser if this is a known route
+
+    // log.verbose('Running request ('+req.method+' ' + req.url + ') through bodyParser...');
+
+    // Mock up a req.file handler that returns a noop upstream, so that user code
+    // can use `req.file` without having to check for it first.  This is useful in cases
+    // where there may or may not be file params coming in.  The Multipart parser will
+    // replace this with an actual upstream-acquiring function if the request isn't successfully
+    // handled by one of the other parsers first.
+    req.file = function(fieldName) {
+      var noopUpstream = new Upstream({
+        noop: true
+      });
+      noopUpstream.fieldName = 'NOOP_'+fieldName;
+      return noopUpstream;
+    };
+
+    if (
+      // If we have a content-length header...
+      !_.isUndefined(req.headers['content-length']) &amp;&amp;
+      // And the content length is declared to be zero...
+      (req.headers['content-length'] === 0 || req.headers['content-length'] === '0')) {
+      // Then we set the body to any empty object
+      // and skip all this body-parsing mishegoss.
+      req.body = {};
+      return next();
+    }
+
+    // Try to parse a request that has application/json content type
+    JSONBodyParser(req, res, function(err) {
+      if (err) return handleError(err);
+      // If the parser actually ran and did some parsing, then we're done.
+      if (req.is('application/json')) {return next();}
+      // Otherwise try the URL-encoded parser (application/x-www-form-urlencoded type)
+      URLEncodedBodyParser(req, res, function(err) {
+        if (err) return handleError(err);
+        // If the parser actually ran and did some parsing, then we're done.
+        if (req.is('application/x-www-form-urlencoded')) {return next();}
+        // Otherwise try the multipart parser
+        MultipartBodyParser(req, res, function(err) {
+          if (err) return handleError(err);
+          // If the parser actually ran and did some parsing, then we're done.
+          if (r ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser" id="apidoc.element.skipper.Parser">
+        function <span class="apidocSignatureSpan">skipper.</span>Parser
+        <span class="apidocSignatureSpan">(req, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(req, options, next) {
+
+  this.req = req;
+  this.next = next;
+  this.options = options = applyDefaultOptions(options);
+
+  // Tracks Upstreams generated during this request.
+  this.upstreams = [];
+
+  // Tracks text params which have been received during this request.
+  // They may or may not have finished yet, as indicated by the `done`
+  // key on each object.  `stream` is the raw partstream from the multipart
+  // HTTP request.
+  this.textParams = [ /* {}, {} */ ];
+
+  this.parseReq();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream" id="apidoc.element.skipper.Upstream">
+        function <span class="apidocSignatureSpan">skipper.</span>Upstream
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Upstream(opts) {
+  var self = this;
+
+  opts = opts || {};
+  _.defaults(opts, {
+    // highWaterMark: 0,
+    objectMode: true,
+
+    // The max # of ms this Upstream will wait without receiving a file
+    // before getting frustrated and emitting an error.  (This will tell
+    // any connected receivers (writestreams) that they ought to just give
+    // up themselves.  This, in turn, triggers the callback for `req.file().upload()`
+    // (no buffering is happening, so it's ok for this to be longer)
+    // This needs to be long enough to allow any policies/middleware to run.
+    // Should not need to exceed 500ms in most cases.
+    maxTimeToWaitForFirstFile: 10000,
+
+    // The max # of ms this Upstream will buffer bytes and wait to be plugged
+    // into a receiver.  highWaterMark isn't quite enough, since we want to be
+    // allow significant buffering in-memory (/utilize back-pressure whenever possible),
+    // but we also want to timeout when the really silly sort of requests come in.
+    maxTimeToBuffer: 4500
+  });
+
+  // Track fatal errors.
+  this._fatalErrors = [];
+
+  // Allow `noop` to be passed in to force this Upstream to immediately end.
+  if (opts.noop) this.isNoop = true;
+
+  // Keep track of file streams which we've emitted.
+  this._files = [];
+
+  // Keep track of timeout timers.
+  this.timeouts = {};
+
+  Readable.call(this, opts);
+
+  // Enforce the `maxTimeToWaitForFirstFile` option.
+  this.timeouts.untilFirstFileTimer = setTimeout(function() {
+    debug('maxTimeToWaitForFirstFile timer fired- as of now there are %d file uploads pending %s', self._files.length, self._files
+.length === 0 ? '' : '(so it\'s fine)');
+    if (self._files.length === 0) {
+      var e = new Error();
+      e.code = 'ETIMEOUT';
+      e.message =
+        e.code + ': ' +
+        'An Upstream (`' + self.fieldName + '`) timed out waiting for file(s). ' +
+        'No files were sent after waiting ' + opts.maxTimeToWaitForFirstFile + 'ms.';
+      self.fatalIncomingError(e);
+    }
+  }, opts.maxTimeToWaitForFirstFile);
+  debug('Set up "maxTimeToWaitForFirstFile" timer for %dms', opts.maxTimeToWaitForFirstFile);
+
+  // Enforce the `maxTimeToBuffer` option.
+  //
+  // Note:
+  // This consideration really ought to be taken care of by the normal highWaterMark
+  // stuff.  As it is, you may not even want a `maxTimeToBuffer` in certain cases
+  // since you may be perfectly happy waiting as long as necessary; provided back-pressure
+  // is being properly applied in the receiver (we know with almost complete certainty that
+  // it's being properly applied in the sending stream because it's a request- with the caveat
+  // that it is possible to build your own fake request stream, e.g. the request interpreter in
+  // Sails, or MockReq)
+  this.timeouts.untilMaxBufferTimer = setTimeout(function() {
+    debug('maxTimeToBuffer timer fired- upstream is %s As of now there are %d file uploads', self._connected?'connected to a receiver
+ (so we\'re good).':'NOT CONNECTED TO A RECEIVER!!',self._files.length);
+    if (!self._connected) {
+      var e = new Error();
+      e.code = 'EMAXBUFFER';
+      e.message =
+        e.code + ': ' +
+        'An Upstream (`' + self.fieldName + '`) timed out before it was plugged into a receiver. ' +
+        'It was still unused after waiting ' + opts.maxTimeToBuffer + 'ms. ' +
+        'You can configure this timeout by changing the `maxTimeToBuffer` option.';
+      self.fatalIncomingError(e);
+    }
+  }, opts.maxTimeToBuffer);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.logger" id="apidoc.element.skipper.logger">
+        function <span class="apidocSignatureSpan">skipper.</span>logger
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function noOp() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper.Parser" id="apidoc.module.skipper.Parser">module skipper.Parser</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser.Parser" id="apidoc.element.skipper.Parser.Parser">
+        function <span class="apidocSignatureSpan">skipper.</span>Parser
+        <span class="apidocSignatureSpan">(req, options, next)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Parser(req, options, next) {
+
+  this.req = req;
+  this.next = next;
+  this.options = options = applyDefaultOptions(options);
+
+  // Tracks Upstreams generated during this request.
+  this.upstreams = [];
+
+  // Tracks text params which have been received during this request.
+  // They may or may not have finished yet, as indicated by the `done`
+  // key on each object.  `stream` is the raw partstream from the multipart
+  // HTTP request.
+  this.textParams = [ /* {}, {} */ ];
+
+  this.parseReq();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser.super_" id="apidoc.element.skipper.Parser.super_">
+        function <span class="apidocSignatureSpan">skipper.Parser.</span>super_
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function EventEmitter() {
+  EventEmitter.init.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper.Parser.prototype" id="apidoc.module.skipper.Parser.prototype">module skipper.Parser.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser.prototype.acquireUpstream" id="apidoc.element.skipper.Parser.prototype.acquireUpstream">
+        function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>acquireUpstream
+        <span class="apidocSignatureSpan">(fieldName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function acquireUpstream(fieldName) {
+
+  var existingStream = _.find(this.upstreams, {
+    fieldName: fieldName
+  });
+  if (existingStream) return existingStream;
+
+
+  // If the Parser has `closed` or `_multipartyError` set to true, the request/form
+  // has already been completely parsed.  Since we don't recognize
+  // the field/Upstream, this must be a call to `req.file('foo')`,
+  // where 'foo' is not a file that is going to be coming in.
+  // So, we return a Noop stream which will immediately end itself.
+  if (this.closed || this._multipartyError) {
+    var noopUpstream = new Upstream({
+      noop: true
+    });
+    noopUpstream.fieldName = 'NOOP_'+fieldName;
+    return noopUpstream;
+  }
+
+  // Otherwise, we're good.  We should instantiate a new Upstream
+  // and assign its `fieldName`,
+  var newUpstream = new Upstream({
+    // Apply configurable timeout options
+    maxTimeToWaitForFirstFile: this.options.maxTimeToWaitForFirstFile,
+    maxTimeToBuffer: this.options.maxTimeToBuffer
+  });
+  log(('Acquiring new Upstream for field `' + fieldName + '`').grey);
+  newUpstream.fieldName = fieldName;
+  this.upstreams.push(newUpstream);
+
+
+  // If the new Upstream ever emits an 'error' event ("READ" error),
+  var self = this;
+  newUpstream.on('error', function(err) {
+
+    // terminate the request early (call `next(err)`)
+    if (!self._hasPassedControlToApp) {
+      self._hasPassedControlToApp = true;
+      log('Error occurred in form before control was passed.  Passing control to app error handler...'.red);
+      return self.next(err);
+    }
+
+
+    // if control has been passed, but nothing has been hooked up yet,
+    // we can't really do anything particularly helpful.
+    // We'll log a warning.
+    // (this is all to keep from throwing and crashing the app)
+    self.emit('warning', String(err));
+    return;
+
+  });
+
+
+  return newUpstream;
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+ * @param  {stream.Readable} part			[a file from one of the fields in the multipart upload]
+ */
+
+module.exports = function onFile(part) {
+
+// Acquire Upstream for this field
+// (one may or may not already exist)
+var up = this.<span class="apidocCodeKeywordSpan">acquireUpstream</span>(part.name);
+
+// First time a file is received, emit an event
+// and set a flag (`this._hasReceivedFirstFile`)
+if (!this.hasReceivedFirstFile) {
+  this.emit('firstFile');
+  this._hasReceivedFirstFile = true;
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser.prototype.onFile" id="apidoc.element.skipper.Parser.prototype.onFile">
+        function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>onFile
+        <span class="apidocSignatureSpan">(part)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function onFile(part) {
+
+  // Acquire Upstream for this field
+  // (one may or may not already exist)
+  var up = this.acquireUpstream(part.name);
+
+  // First time a file is received, emit an event
+  // and set a flag (`this._hasReceivedFirstFile`)
+  if (!this.hasReceivedFirstFile) {
+    this.emit('firstFile');
+    this._hasReceivedFirstFile = true;
+  }
+
+  // Inform Upstream about new file
+  up.writeFile(part);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // Take care of text parameters (i.e. non-files)
+  if (!part.filename) {
+    this.onTextParam(part);
+    return;
+  }
+
+  // Custom handler for fields w/ files
+  this.<span class="apidocCodeKeywordSpan">onFile</span>(part);
+}, this));
+
+
+
+// Emitted after all parts have been parsed and emitted. Not emitted if an
+// `error` event is emitted.
+form.on('close', function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser.prototype.onTextParam" id="apidoc.element.skipper.Parser.prototype.onTextParam">
+        function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>onTextParam
+        <span class="apidocSignatureSpan">(part)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function onTextParam(part) {
+
+  var self = this;
+  var field = part.name;
+  var value = '';
+  var decoder = new StringDecoder(this.form.encoding);
+
+  // Track fields that receive multiple param values
+  self.multifields = self.multifields || {};
+
+  // After control has been relinquished, any textparams received should be ignored
+  // since its too late to include them in `req.body` (subsequent app code is already running)
+  // So emit a warning.
+  if (this._hasPassedControlToApp) {
+    this.emit('warning', STRINGFILE.get('warning.paramArrivedTooLate', [field, field]));
+    // Redirect the part stream into the data toilet.
+    // This ensures that the stream will close properly.
+    part.on('readable', function onBytesAvailable() {
+      // Read until the buffer is dry.
+      while (null !== part.read()) { /* no-op */ }
+    });
+    return;
+  }
+
+  // Track the newly detected param
+  var textParamMetadata = {
+    done: false,
+    stream: part
+  };
+  this.textParams.push(textParamMetadata);
+
+
+  // Now receive bytes from the text param:
+
+  // TODO:
+  // Try to use pipe instead, or better yet, defer to the built-in handling
+  // w/i formidable/multiparty (as long as we're absolutely certain that doesn't
+  // trigger writing .tmp files to disk.)
+  part.on('readable', function onBytesAvailable() {
+
+    var buffer = '';
+    var chunk;
+    while (null !== (chunk = part.read())) {
+      buffer += chunk;
+    }
+
+    // New bytes available for text param:
+    if (buffer) {
+
+      // TODO: make `maxFieldsSize` directly configurable via `options`
+      self.form._fieldsSize += buffer.length;
+      if (self.form._fieldsSize &gt; self.form.maxFieldsSize) {
+        self.form._error(new Error('maxFieldsSize exceeded, received ' + self.form._fieldsSize + ' bytes of field data'));
+        return;
+      }
+      value += decoder.write(buffer);
+      log(('Parser: Read a chunk of textparam through field `' + field + '`').grey);
+      return;
+    }
+
+    log(('Parser: Done reading textparam through field `' + field + '`').grey);
+
+
+    //
+    // Otherwise, if buffer is null, that means we've now received all of the bytes
+    // from the textparam.
+    //
+
+    // TODO: emit events instead of mutating `req` directly here.
+    // (so we don't have to pass `req` in.)
+
+    // If `req.body` already contains `field`, and this is the first duplicate value
+    // (i.e. the second value to come in for this param) track it as a "multifield"
+    // and build an array of param values.
+    // (We have to do this in case the original value was an array itself- we wouldn't
+    // want to push subsequent values onto THAT array, y'know?)
+    if (self.req.body[field]) {
+
+      if (self.multifields[field]) {
+        self.req.body[field].push(value);
+      } else {
+        log('`' + field + '` param already exists in req.body, converting into a "multifield"...');
+        self.req.body[field] = [self.req.body[field]];
+        self.multifields[field] = true;
+        self.req.body[field].push(value);
+      }
+    } else {
+      self.req.body[field] = value;
+    }
+
+    // Mark that this textParam is done streaming in data in its
+    // `textParamMetadata` object.  This is monitored and used so
+    // we know to wait for any known textParams to finish streaming
+    // before we pass control to the app.
+    textParamMetadata.done = true;
+
+  });
+
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // So if that happens, we take that error and emit it on the form itself.
+  part.on('error', function(err){
+    form.emit(err||new Error('Multiparty part stream emitted an unexpected error, but no other information about it was available
+.'));
+  });
+
+  // Take care of text parameters (i.e. non-files)
+  if (!part.filename) {
+    this.<span class="apidocCodeKeywordSpan">onTextParam</span>(part);
+    return;
+  }
+
+  // Custom handler for fields w/ files
+  this.onFile(part);
+}, this));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Parser.prototype.parseReq" id="apidoc.element.skipper.Parser.prototype.parseReq">
+        function <span class="apidocSignatureSpan">skipper.Parser.prototype.</span>parseReq
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function parseReq() {
+  var self = this;
+
+
+  // Save reference to `form` instance.
+  var form = this.form = new Form();
+
+
+
+  // Only one 'error' event should ever be emitted, and if an 'error' event
+  // is emitted, then 'close' should NOT be emitted.
+  form.on('error', function(err) {
+
+    debug('multiparty form emitted error:',err);
+
+    // Emits error on any already-live Upstreams in this request.
+    _.each(self.upstreams, function(up) {
+      up.fatalIncomingError(err);
+    });
+
+    // Flag Parser instance with an error
+    self._multipartyError = err||true;
+
+    // // Stop accepting form stuff.
+    // // (no more new incoming files/textparams)
+    // self.closed = true;
+
+    // // // Informs all Upstreams in this request
+    // // // that no more files will be sent.
+    // // _(self.upstreams).each(function(up) {
+    // //   up.noMoreFiles();
+  });
+
+
+<span class="apidocCodeCommentSpan">  /**
+   * Receive/handle a new `part` stream from a field in the multipart upload.
+   * @param  {stream.Readable} part
+   */
+</span>  form.on('part', _.bind(function(part) {
+
+    // In multiparty 4.x, parts can emit errors.
+    // So if that happens, we take that error and emit it on the form itself.
+    part.on('error', function(err){
+      form.emit(err||new Error('Multiparty part stream emitted an unexpected error, but no other information about it was available
+.'));
+    });
+
+    // Take care of text parameters (i.e. non-files)
+    if (!part.filename) {
+      this.onTextParam(part);
+      return;
+    }
+
+    // Custom handler for fields w/ files
+    this.onFile(part);
+  }, this));
+
+
+
+  // Emitted after all parts have been parsed and emitted. Not emitted if an
+  // `error` event is emitted.
+  form.on('close', function() {
+    log((STRINGFILE.get('parser.form.onClose')).grey);
+    debug('multiparty form closed.');
+
+    // Flag this request as closed
+    // (no more new incoming files/textparams)
+    self.closed = true;
+
+    // Informs all Upstreams in this request
+    // that no more files will be sent.
+    _.each(self.upstreams, function(up) {
+      up.noMoreFiles();
+    });
+
+    // Uncomment this (and comment out the `noMoreFiles` business above)
+    // to simulate an error for testing purposes:
+    // up.fatalIncomingError('whee');
+  });
+
+
+
+  // Set up 3 conditions under which this Parser will pass control
+  // to app-level code (i.e. call next())
+  // ONLY ONE of the following must be satisfied to continue onward.
+  // (careful! no error allowed in callbacks!)
+  var timer;
+  var whichGuard;
+  async.any([
+
+      // (1)
+      // As soon as request body has been completely parsed.
+      function requestBodyCompletelyParsed(done) {
+        form.once('close', function() {
+          if (!whichGuard){
+            debug('passed control to app because the request "form" closed (there probably weren\'t any file uploads on this upstream
+)');
+            whichGuard = 'requestBodyCompletelyParsed';
+          }
+          done(true);
+        });
+      },
+
+      // (2)
+      // As soon as at least one file is received on any Upstream.
+      function receivedFirstFileOfRequest(done) {
+        self.once('firstFile', function() {
+          if (!whichGuard){
+            debug('passed control to app because first file was received');
+            whichGuard = 'receivedFirstFileOfRequest';
+          }
+          done(true);
+        });
+      },
+
+      // (3)
+      // If no files have been received by the time
+      // `maxWaitTimeBeforePassingControlToApp`ms have elapsed,
+      // go ahead and proceed.
+      function impatient(done) {
+        // Note that this is different than "maxTimeToWaitForFirstFile" and "maxTimeToBuffer"-
+        // rather, this is just the max number of ms that Skipper will wait before passing control
+        // from the body parser (i.e. calling next()).
+        //
+        timer = setTimeout(function() {
+          if (!whichGuard){
+            debug('passed control to app because %s elapsed', self.options.maxWaitTimeBeforePassingControlToApp);
+            whichGuard = 'impatient';
+          }
+          done(true);
+        }, self.options.maxWaitTimeBeforePassingControl ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+ // Tracks text params which have been received during this request.
+ // They may or may not have finished yet, as indicated by the `done`
+ // key on each object.  `stream` is the raw partstream from the multipart
+ // HTTP request.
+ this.textParams = [ /* {}, {} */ ];
+
+ this.<span class="apidocCodeKeywordSpan">parseReq</span>();
+}
+util.inherits(Parser, EventEmitter);
+
+
+/**
+* Parse an incoming multipart request.
+*/
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper.Upstream" id="apidoc.module.skipper.Upstream">module skipper.Upstream</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.Upstream" id="apidoc.element.skipper.Upstream.Upstream">
+        function <span class="apidocSignatureSpan">skipper.</span>Upstream
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Upstream(opts) {
+  var self = this;
+
+  opts = opts || {};
+  _.defaults(opts, {
+    // highWaterMark: 0,
+    objectMode: true,
+
+    // The max # of ms this Upstream will wait without receiving a file
+    // before getting frustrated and emitting an error.  (This will tell
+    // any connected receivers (writestreams) that they ought to just give
+    // up themselves.  This, in turn, triggers the callback for `req.file().upload()`
+    // (no buffering is happening, so it's ok for this to be longer)
+    // This needs to be long enough to allow any policies/middleware to run.
+    // Should not need to exceed 500ms in most cases.
+    maxTimeToWaitForFirstFile: 10000,
+
+    // The max # of ms this Upstream will buffer bytes and wait to be plugged
+    // into a receiver.  highWaterMark isn't quite enough, since we want to be
+    // allow significant buffering in-memory (/utilize back-pressure whenever possible),
+    // but we also want to timeout when the really silly sort of requests come in.
+    maxTimeToBuffer: 4500
+  });
+
+  // Track fatal errors.
+  this._fatalErrors = [];
+
+  // Allow `noop` to be passed in to force this Upstream to immediately end.
+  if (opts.noop) this.isNoop = true;
+
+  // Keep track of file streams which we've emitted.
+  this._files = [];
+
+  // Keep track of timeout timers.
+  this.timeouts = {};
+
+  Readable.call(this, opts);
+
+  // Enforce the `maxTimeToWaitForFirstFile` option.
+  this.timeouts.untilFirstFileTimer = setTimeout(function() {
+    debug('maxTimeToWaitForFirstFile timer fired- as of now there are %d file uploads pending %s', self._files.length, self._files
+.length === 0 ? '' : '(so it\'s fine)');
+    if (self._files.length === 0) {
+      var e = new Error();
+      e.code = 'ETIMEOUT';
+      e.message =
+        e.code + ': ' +
+        'An Upstream (`' + self.fieldName + '`) timed out waiting for file(s). ' +
+        'No files were sent after waiting ' + opts.maxTimeToWaitForFirstFile + 'ms.';
+      self.fatalIncomingError(e);
+    }
+  }, opts.maxTimeToWaitForFirstFile);
+  debug('Set up "maxTimeToWaitForFirstFile" timer for %dms', opts.maxTimeToWaitForFirstFile);
+
+  // Enforce the `maxTimeToBuffer` option.
+  //
+  // Note:
+  // This consideration really ought to be taken care of by the normal highWaterMark
+  // stuff.  As it is, you may not even want a `maxTimeToBuffer` in certain cases
+  // since you may be perfectly happy waiting as long as necessary; provided back-pressure
+  // is being properly applied in the receiver (we know with almost complete certainty that
+  // it's being properly applied in the sending stream because it's a request- with the caveat
+  // that it is possible to build your own fake request stream, e.g. the request interpreter in
+  // Sails, or MockReq)
+  this.timeouts.untilMaxBufferTimer = setTimeout(function() {
+    debug('maxTimeToBuffer timer fired- upstream is %s As of now there are %d file uploads', self._connected?'connected to a receiver
+ (so we\'re good).':'NOT CONNECTED TO A RECEIVER!!',self._files.length);
+    if (!self._connected) {
+      var e = new Error();
+      e.code = 'EMAXBUFFER';
+      e.message =
+        e.code + ': ' +
+        'An Upstream (`' + self.fieldName + '`) timed out before it was plugged into a receiver. ' +
+        'It was still unused after waiting ' + opts.maxTimeToBuffer + 'ms. ' +
+        'You can configure this timeout by changing the `maxTimeToBuffer` option.';
+      self.fatalIncomingError(e);
+    }
+  }, opts.maxTimeToBuffer);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.super_" id="apidoc.element.skipper.Upstream.super_">
+        function <span class="apidocSignatureSpan">skipper.Upstream.</span>super_
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Readable(options) {
+  if (!(this instanceof Readable))
+    return new Readable(options);
+
+  this._readableState = new ReadableState(options, this);
+
+  // legacy
+  this.readable = true;
+
+  if (options &amp;&amp; typeof options.read === 'function')
+    this._read = options.read;
+
+  Stream.call(this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper.Upstream.prototype" id="apidoc.module.skipper.Upstream.prototype">module skipper.Upstream.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype._read" id="apidoc.element.skipper.Upstream.prototype._read">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>_read
+        <span class="apidocSignatureSpan">(numBytesRequested)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function onNewDataRequested(numBytesRequested) {
+  if (numBytesRequested === 0) return;
+
+  // &lt;todo&gt;
+  // re: line 70 of `prototype.writeFile.js`:
+  // resume the flow of incoming part streams coming off the MPU request
+  // &lt;/todo&gt;
+
+  // Don't really need to do anything in here for now as far as pushing data--
+  // we'll push to the receiving writestream when we're ready.
+  debug('Something is trying to read from Upstream `%s`...',this.fieldName);
+
+
+  // If we are a no-op Upstream, push `null` (ending the pipe) as soon
+  // as something tries to read us.
+  if (this.isNoop) return this.noMoreFiles();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype.fatalIncomingError" id="apidoc.element.skipper.Upstream.prototype.fatalIncomingError">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>fatalIncomingError
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function fatalIncomingError(err) {
+
+  // Log message indicating that we are now aborting/cancelling all
+  // future, current, and previously uploaded files from this Upstream.
+  log.color('red').write('Fatal incoming error in Upstream `%s` ::   (source or user may have cancelled the request)',this.fieldName
+);
+  log.color('red').write(err.toString &amp;&amp; err.toString());
+  log.color('red').write('-----------');
+  log(err.code);
+  log('%s - %s', util.inspect(err.message), util.inspect(err.name));
+  log.color('red').write('-----------');
+
+  // Emit an error event to any of file streams in this Upstream
+  // which are still being consumed.
+  //
+  // Any `receiver__`s reading this Upstream are responsible for listening to
+  // 'error' events on the incoming file readstream(s).  On receipt of such a
+  // "READ" error, they should cancel the upload and garbage-collect any bytes
+  // which were already written to the destination writestream(s).
+  //
+  // Receivers should, of course, ALSO listen for "WRITE" errors ('error' events on
+  // the outgoing writestream for each file).  The behavior is probably pretty much
+  // the same in both cases, although a receiver might, for instance, choose to retry using
+  // exponential back-off in the case of a "WRITE" error.  But on receiving a "READ" error,
+  // it should always immediately stop.  This is because such an error is usually more
+  // serious, and might even be an indication of the user trying to cancel a file upload.
+  var self = this;
+  _.each(this._files, function(file) {
+
+    // If the file has already been cancelled, return rather than emitting another error on the stream.
+    // This is because depending on the adapter, an error on the stream may result in fatalIncomingError
+    // being called again, and the receiver is only equipped to handle one fatal error (i.e. it uses
+    // .once(), which makes sense since the error is supposed to be _fatal_, after all).
+    if (file.status === 'cancelled') {
+      debug('Swallowing fatal upstream error for already-cancelled incoming file `%s` of upstream `%s`', file.stream.filename, self
+.fieldName);
+      return;
+    }
+
+    // If the file is finished, ignore the error.
+    if (file.status === 'finished') {
+      debug('Swallowing fatal upstream error for already-finished incoming file `%s` of upstream `%s`', file.stream.filename, self
+.fieldName);
+      return;
+    }
+
+    // Mark the file as cancelled
+    file.status = 'cancelled';
+
+    // Output a debug message indicating that an error occurred on the incoming file.
+    if (!self._connected){
+      debug('Forwarding fatal upstream error for unconnected (i.e. not connected to receiver) incoming file `%s` of upstream `%s
+`', file.stream.filename, self.fieldName);
+    } else {
+      debug('Forwarding fatal upstream error for already-connected (to receiver) incoming file `%s` of upstream `%s`', file.stream
+.filename, self.fieldName);
+    }
+
+    // Forward the fatal upstream error to the actual file stream so that it can re-route to the leaky pipe.
+    // Otherwise, the stream may never close, causing the response to hang.
+    file.stream.emit('error', err);
+
+  });
+
+  // Indicate the end of the Upstream (no more files coming)
+  this.noMoreFiles();
+
+
+  // Finally, emit error on this Upstream itself to cause some real trouble.
+  // If this Upstream is connected to something, this will trigger the error handler
+  // on the receiving writestream, which might contain special behavior.
+  // Otherwise, the error will be handled by the Parser, which will send a warning
+  // back up to the request, or even potentially call `next(err)`, if the parser middleware
+  // hasn't handed over control to the app yet.
+  this.emit('error', err);
+
+  // Track errors on this upstream in case its NOT connected to a receiver.
+  // This allows us to intercept attemps to .upload() to it.
+  this._fatalErrors.push(err);
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // is emitted, then 'close' should NOT be emitted.
+  form.on('error', function(err) {
+
+debug('multiparty form emitted error:',err);
+
+// Emits error on any already-live Upstreams in this request.
+_.each(self.upstreams, function(up) {
+  up.<span class="apidocCodeKeywordSpan">fatalIncomingError</span>(err);
+});
+
+// Flag Parser instance with an error
+self._multipartyError = err||true;
+
+// // Stop accepting form stuff.
+// // (no more new incoming files/textparams)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype.noMoreFiles" id="apidoc.element.skipper.Upstream.prototype.noMoreFiles">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>noMoreFiles
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function noMoreFiles() {
+  // log.color('grey').write('Upstream: No more files will be sent through field `%s`', this.fieldName);
+  debug('Upstream: No more files will be sent through field `%s`- clearing timeouts...', this.fieldName);
+  this.push(null);
+
+  // Clear all timeouts
+  _.each(this.timeouts, function(timer, key) {
+    clearTimeout(timer);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // // Stop accepting form stuff.
+  // // (no more new incoming files/textparams)
+  // self.closed = true;
+
+  // // // Informs all Upstreams in this request
+  // // // that no more files will be sent.
+  // // _(self.upstreams).each(function(up) {
+  // //   up.<span class="apidocCodeKeywordSpan">noMoreFiles</span>();
+});
+
+
+/**
+ * Receive/handle a new `part` stream from a field in the multipart upload.
+ * @param  {stream.Readable} part
+ */
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype.pipe" id="apidoc.element.skipper.Upstream.prototype.pipe">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>pipe
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function pipe() {
+  var self = this;
+
+  self._connected = true;
+  self._receiver = arguments[0];
+  self.once('end', function (){
+    self._emittedEnd = true;
+  });
+  self.once('error', function (){
+    self._emittedError = true;
+  });
+  return Readable.prototype.pipe.apply(self, Array.prototype.slice.call(arguments));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```js
+req.file('foo').upload(receiving, function (err, filesUploaded) {
+  // ...
+});
+```
+
+#### `upstream.<span class="apidocCodeKeywordSpan">pipe</span>(receiving)`
+
+As an alternative to the `upload()` method, you can pipe an incoming **upstream** returned from `req.file()` (a Readable stream
+of Readable binary streams) directly to the **receiver** (a Writable stream for Upstreams.)
+
+
+```js
+req.file('foo').pipe(receiving);
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype.serializeFiles" id="apidoc.element.skipper.Upstream.prototype.serializeFiles">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>serializeFiles
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function serializeFiles() {
+  var self = this;
+
+  return _.reduce(self._files, function(memo, file) {
+
+    memo.push(new UploadedFileMetadata({
+      // Unique file descriptor:
+      fd: file.stream.fd,
+
+      // File size.
+      // Multiparty will attempt to set this to the value of a part's
+      // `content-length` header if such a header exists, but adapters
+      // should override this by setting `byteCount` to the size of the
+      // persisted file to ensure accuracy.
+      size: file.stream.byteCount,
+
+      // Conventional bodyParser stuff:
+      type: file.stream.headers &amp;&amp; file.stream.headers['content-type'],
+
+      // Custom stuff:
+      filename: file.stream.filename,
+      status: file.status,
+      field: self.fieldName,
+      extra: file.stream.extra,
+
+      // Non-enumerable properties:
+      stream: file.stream
+    }));
+
+    return memo;
+  }, []);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+// The receiver write stream finished successfully!
+// This should be called when all files in the upstream
+// have been persisted, according to the adapter.
+receiver__.once('finish', function allFilesUploaded() {
+  log.color('grey').write('A receiver is finished writing files from Upstream `' + self.fieldName + '`.&amp;#
+x27;);
+  log.color('grey').write('(this doesn\'t necessarily mean any files were actually written...)');
+  cb(null, self.<span class="apidocCodeKeywordSpan">serializeFiles</span>());
+});
+
+// Write stream encountered a fatal error and had to quit early!
+// (some of the files may still have been successfully written, though)
+receiver__.on('error', function unableToUpload(err) {
+  log.color('red').write('A receiver handling Upstream `%s` encountered a write error :', self.fieldName, util
+.inspect(err));
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype.upload" id="apidoc.element.skipper.Upstream.prototype.upload">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>upload
+        <span class="apidocSignatureSpan">(opts, _cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function upload(opts, _cb) {
+  var self = this;
+  var USAGE = '.upload([receiver] [,callback])';
+
+  // If first parameter is the callback-function not a `receiver__`
+  if (!arguments[1] &amp;&amp; typeof arguments[0] === 'function') {
+    _cb = opts;
+    opts = {};
+  }
+
+  // Handle first argument when it's specified as string
+  // (save it as the `saveAs` opt)
+  if (typeof opts === 'string') {
+    opts = { saveAs: opts };
+  }
+
+  // Handle `saveAs` when it's specified as string (normalize to fn)
+  if (typeof opts === 'object' &amp;&amp; typeof opts.saveAs === 'string') {
+
+    // If the string has a leading `/`, interpret it as an absolute path.
+    // In that case, we'll infer a value for the "dirname" option.
+    if (!!opts.saveAs.match(/^\//)) {
+      opts.dirname = opts.dirname || path.dirname(opts.saveAs);
+      opts.saveAs = path.basename(opts.saveAs);
+    }
+    // And in any case, we'll normalize "saveAs" to a function
+    var desiredFilename = opts.saveAs;
+    opts.saveAs = function (__newFile, next) {
+      next(null, desiredFilename);
+    };
+  }
+
+  // Ensure callback exists and can only be triggered once
+  var cbTriggered;
+  var cb = function (err, files){
+    if (cbTriggered) return;
+    cbTriggered = true;
+
+    if (typeof _cb === 'function') {
+      return _cb(err, files);
+    }
+    if (err) {
+      throw err; // (perhaps emit an error on the upstream instead?)
+    }
+  };
+
+  debug('.upload() called on upstream');
+
+  // If a fatal error occurred on this upstream before upload()
+  // was called, trigger the callback immediately.
+  if (self._fatalErrors.length &gt; 0) {
+    debug('Triggering cb w/ error--upstream already has fatal error: %s', self._fatalErrors[0]);
+    // self.pipe()
+    _.each(self._files, function(file) {
+      var leaky = new Writable();
+      leaky._write = function(chunk, encoding, cb) {
+        cb();
+      };
+      file.stream.unpipe();
+      file.stream.pipe(leaky);
+    });
+    // self.unpipe();
+    // self.unpipe()
+    return cb(self._fatalErrors[0]);
+  }
+
+  // If error is emitted on this upstream, trigger the callback
+  self.once('error', function (err){
+    debug('upstream emitted error, forcing us to trigger the callback for .upload() with err: %s',err);
+    return cb(err);
+  });
+
+  // Locate, normalize, and/or build a receiver instance using the value passed in
+  // as the first argument (`receiver__`)
+  var receiver__;
+  try { receiver__ = buildOrNormalizeReceiver(opts); }
+  catch (e) {
+    return cb(e);
+  }
+
+  // For convenience, pump progress events from the receiver
+  // to this upstream.  This allows for interchangable, chainable
+  // usage, e.g. `req.file().upload(...).on('progress', ...)`
+  receiver__.on('progress', function(milestone) {
+    self.emit('progress', milestone);
+  });
+
+  // The receiver supposedly persisted a single file successfully.
+  // This should be called once per file in the upstream.
+  receiver__.on('writefile', function(fileStream) {
+    var file = _.find(self._files, {stream: fileStream});
+    file.status = 'finished';
+  });
+
+  // The receiver write stream finished successfully!
+  // This should be called when all files in the upstream
+  // have been persisted, according to the adapter.
+  receiver__.once('finish', function allFilesUploaded() {
+    log.color('grey').write('A receiver is finished writing files from Upstream `' + self.fieldName + '`.');
+    log.color('grey').write('(this doesn\'t necessarily mean any files were actually written...)');
+    cb(null, self.serializeFiles());
+  });
+
+  // Write stream encountered a fatal error and had to quit early!
+  // (some of the files may still have been successfully written, though)
+  receiver__.on('error', function unableToUpload(err) {
+    log.color('red').write('A receiver handling Upstream `%s` encountered a write error :', self.fieldName, util.inspect(err));
+
+    // Forcibly end the incoming stream of files on this upstream
+    self.fatalIncomingError(err);
+
+    // Trigger callback
+    cb(err, self.serializeFiles());
+  });
+
+  // Build a renamer stream which will construct an `fd` for each incoming file
+  // will use the `s ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+
+## Quick Start
+
+The following example assumes skipper is already installed as the body parser in your Express or Sails app. It receives one or more
+ files from a **file parameter** named `avatar` using the default, built-in file adapter (skipper-disk).  This streams the file(
+s) to the default upload directory `.tmp/uploads/` on the server's local disk.
+
+```javascript
+req.file('avatar').<span class="apidocCodeKeywordSpan">upload</span>(function (err, uploadedFiles){
+  if (err) return res.send(500, err);
+  return res.send(200, uploadedFiles);
+});
+```
+============================================
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.Upstream.prototype.writeFile" id="apidoc.element.skipper.Upstream.prototype.writeFile">
+        function <span class="apidocSignatureSpan">skipper.Upstream.prototype.</span>writeFile
+        <span class="apidocSignatureSpan">(__filestream)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function writeFile(__filestream) {
+
+  var self = this;
+
+
+  var newFile = {
+    stream: __filestream,
+    status: 'bufferingOrWriting'
+  };
+
+  // Provide `__filestream.field` as alias to `__filestream.name`
+  // for consistency within the receiver (final uploaded files
+  // metadata objects have a `field` property)
+  __filestream.field = __filestream.name;
+
+  // Track incoming file stream for use in metadata sent back
+  // from `.upload()` and also in case we need to cancel it:
+  self._files.push(newFile);
+
+  // Set up error handler for the new __filestream:
+  //
+  __filestream.on('error', (function() {
+
+    // If the __filestream is not being consumed (i.e. this Upstream is not
+    // `connected` to anything), then we shouldn't allow errors on it to
+    // go unhandled (since it would throw, causing the server to crash).
+
+    // On the other hand, if this Upstream is already hooked up to one or more
+    // receivers, we're counting on them to listen for "READ" errors on each incoming
+    // file stream and handle them accordingly.
+    // (i.e. cancel the write and garbage collect the already-written bytes)
+
+    // So basically, in both cases, we'll sort of just catch the file
+    // READ error and... well, do nothing.
+    //
+    // (keep in mind-- an error event will still be emitted on the actual
+    // Upstream itself, but that's happening elsewhere.)
+
+
+    // Pump any remaining chunks from the __filestream into the leaky pipe
+    // TODO:
+    // I suppose it's possible this step may need to change later, but only
+    // if we want receivers to be able to continue to use the __filestreams after
+    // an error occurs (I don't see why we would..)
+    // Anyways, it's absolutely crucial that this pipe to a `leaky` Writable
+    // for everything to work.  Otherwise, responses never get sent.
+
+    //An error can be emitted on this stream more than once by underlying libraries such as multiparty
+    //Mark this event as fired already so we do not pipe the stream twice to the 'leaky' stream.
+      var hasFired = false;
+
+      return function(err) {
+
+          if (!hasFired) {
+              var leaky = new Writable();
+              leaky._write = function(chunk, encoding, cb) {
+                  cb();
+              };
+              __filestream.unpipe();
+              __filestream.pipe(leaky);
+              log('Piping the not-yet-written bytes from incoming file `' + __filestream.filename + '` to the memory hole..');
+          }
+
+          hasFired = true;
+      };
+
+  }()));
+
+
+
+  // Pump out the new file
+  // (Upstream is a Readable stream, remember?)
+  var isBackedUp = !self.push(__filestream);
+
+  // &lt;PERHAPS?&gt;
+  // If the push returned false, stop pushing files for a bit
+  // (this would involve pausing the flow of incoming part streams
+  //  coming from the `on("part")` signals emitted from the MPU request)
+  //
+  // Easy enough right?
+  // -BUT-
+  // Here's the challenge- the incoming MPU form closing will cause Skipper
+  // to stop listening for new files.  So we must always push __filestreams as soon
+  // as they arrive.  Not sure if changing this is even preferable...
+  // &lt;/PERHAPS?&gt;
+
+  log.color('grey').write('Upstream: Pumping incoming file through field `%s`', self.fieldName);
+
+
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  // and set a flag (`this._hasReceivedFirstFile`)
+  if (!this.hasReceivedFirstFile) {
+    this.emit('firstFile');
+    this._hasReceivedFirstFile = true;
+  }
+
+  // Inform Upstream about new file
+  up.<span class="apidocCodeKeywordSpan">writeFile</span>(part);
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper.logger" id="apidoc.module.skipper.logger">module skipper.logger</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.logger.logger" id="apidoc.element.skipper.logger.logger">
+        function <span class="apidocSignatureSpan">skipper.</span>logger
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function noOp() {}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.logger.color" id="apidoc.element.skipper.logger.color">
+        function <span class="apidocSignatureSpan">skipper.logger.</span>color
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function noOp() { return {write: function noOp(){}}; }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    // If this doesn't work, it logs a message.  In production, no warnings are emitted.
+    if (process.env.NODE_ENV !== 'production') {
+      parser.on('warning', function(msg) {
+        if (req._sails) {
+          try {
+            req._sails.log.verbose(msg);
+          } catch (e) {}
+        } else log.<span class="apidocCodeKeywordSpan">color</span>('yellow').write(msg);
+      });
+    }
+
+  };
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.skipper.stringfile" id="apidoc.module.skipper.stringfile">module skipper.stringfile</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.skipper.stringfile.get" id="apidoc.element.skipper.stringfile.get">
+        function <span class="apidocSignatureSpan">skipper.stringfile.</span>get
+        <span class="apidocSignatureSpan">(keypath, args)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (keypath, args) {
+		args = (args &amp;&amp; args.length) ? args : [];
+		return util.format.apply(util, [deep.get(STRINGFILE, keypath)].concat(args));
+	}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+	}
+};
+
+
+module.exports = {
+	get: function (keypath, args) {
+		args = (args &amp;&amp; args.length) ? args : [];
+		return util.format.apply(util, [deep.<span class="apidocCodeKeywordSpan">get</span>(STRINGFILE, keypath)].concat(args));
+	}
+};
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
